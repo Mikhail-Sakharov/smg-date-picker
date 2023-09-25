@@ -1,0 +1,195 @@
+.smg-date-picker-anchor,
+.smg-date-picker-anchor * {
+  cursor: pointer;
+}
+
+.smg-date-picker {
+  display: none;
+}
+
+.smg-date-picker.opened {
+  position: absolute;
+  margin-top: 2px;
+  display: block;
+  z-index: 888;
+}
+
+.smg-date-picker__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+
+  border-radius: 4px;
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  filter: drop-shadow(0px 10px 20px rgba(31, 32, 65, 0.05));
+}
+
+.smg-date-picker__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.smg-date-picker__title {
+  color: #1F2041;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.smg-date-picker__left-arrow {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-image: url('./arrow-left.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.smg-date-picker__right-arrow {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-image: url('./arrow-right.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.smg-date-picker__weekday-names {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+
+  color: #BC9CFF;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.smg-date-picker__weekday,
+.smg-date-picker__day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+}
+
+.smg-date-picker__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.smg-date-picker__day {
+  border-radius: 50%;
+  color: rgba(31, 32, 65, 0.50);
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.smg-date-picker__day--outside-period {
+  color: rgba(31, 32, 65, 0.25);
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.smg-date-picker__day--current {
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  color: #FFF;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.smg-date-picker__day--after-today:hover {
+  cursor: pointer;
+}
+
+.smg-date-picker__day--start,
+.smg-date-picker__day--finish {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  z-index: 1;
+}
+
+.smg-date-picker__day--within-the-range {
+  background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+  border-radius: 0;
+}
+
+.smg-date-picker__day--start::after {
+  content: '';
+  display: flex;
+  width: 20px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+  position: absolute;
+  margin-left: 20px;
+  z-index: -1;
+}
+
+.smg-date-picker__day--finish::before {
+  content: '';
+  display: flex;
+  width: 20px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+  position: absolute;
+  margin-left: -20px;
+  z-index: -1;
+}
+
+.smg-date-picker__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.smg-date-picker__button-text {
+  display: flex;
+  justify-content: center;
+}
+
+.smg-date-picker__button-text button {
+  align-self: center;
+  border-style: none;
+  color: #BC9CFF;
+  background-color: #ffffff;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+
+.smg-date-picker__button-text button:hover {
+  color: rgba(31, 32, 65, 0.5);
+  cursor: pointer;
+}
