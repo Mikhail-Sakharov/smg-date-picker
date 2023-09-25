@@ -1,9 +1,12 @@
 # Installation
 
+```command
 npm i smg-date-picker
+```
 
 # Usage
 
+```js
 createSMGDatePicker({
   anchorElement: Element;
   firstOutputElement: Element;
@@ -12,6 +15,7 @@ createSMGDatePicker({
   localization?: Localization;
   callback?: (startDate: string, finishDate?: string) => void;
 });
+```
 
 ## Available options
 
@@ -34,15 +38,15 @@ In the case where the secondOutputElement is not passed to the options object, t
 
 There are two modes available:
 
-CalendarMode.Single
-CalendarMode.Range
+- CalendarMode.Single
+- CalendarMode.Range
 
 ### localization (optional, default: Localization.Eng)
 
 There are two available options:
 
-Localization.Eng for English
-Localization.Ru for Russian
+- Localization.Eng for English
+- Localization.Ru for Russian
 
 ### callback (optional)
 
@@ -53,6 +57,7 @@ For example it could be used in the request to the backend API.
 
 ## Single mode expample
 
+```js
 import {createSMGDatePicker, CalendarMode, Localization} from 'smg-date-picker';
 import 'smg-date-picker/dist/style.css';
 
@@ -63,9 +68,11 @@ createSMGDatePicker({
   anchorElement,
   firstOutputElement
 });
+```
 
 ## Range mode example
 
+```js
 import {createSMGDatePicker, CalendarMode, Localization} from 'smg-date-picker';
 import 'smg-date-picker/dist/style.css';
 
@@ -85,3 +92,4 @@ createSMGDatePicker({
   localization: Localization.Ru;
   callback: showDates
 });
+```
