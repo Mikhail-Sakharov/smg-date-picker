@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "A simple datepicker without dependencies",
   "main": "./dist/index.js",
+  "repository": "https://github.com/Mikhail-Sakharov/smg-date-picker.git",
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"

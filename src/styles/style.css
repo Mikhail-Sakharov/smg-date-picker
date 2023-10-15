@@ -9,7 +9,7 @@
 
 .smg-date-picker.opened {
   position: absolute;
-  margin-top: 2px;
+  margin-top: 5px;
   display: block;
   z-index: 888;
 }
@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 18px;
 
   border-radius: 4px;
   background: #FFFFFF;

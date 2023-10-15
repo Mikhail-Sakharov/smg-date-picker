@@ -19,36 +19,36 @@ createSMGDatePicker({
 
 ## Available options
 
-### anchorElement
+- ### anchorElement
 
 This is the element which is used the smg-date-picker to be linked to.
 For example it might be a button element or a custom dropdown element.
 
-### firstOutputElement
+- ### firstOutputElement
 
 This element is used to display selected date. In the single mode it displays the only selected date whereas in the range mode it displays selected start date.
 
-### secondOutputElement (optional)
+- ### secondOutputElement (optional)
 
 This element is used to display the finish date of the selected range.
 This element is used only in the range mode and it is optional.
 In the case where the secondOutputElement is not passed to the options object, the output will be displayed on the firstOutputElement in the format "dd.mm.yyyy - dd.mm.yyyy".
 
-### mode (optional, default: CalendarMode.Single)
+- ### mode (optional, default: CalendarMode.Single)
 
 There are two modes available:
 
 - CalendarMode.Single
 - CalendarMode.Range
 
-### localization (optional, default: Localization.Eng)
+- ### localization (optional, default: Localization.Eng)
 
 There are two available options:
 
 - Localization.Eng for English
 - Localization.Ru for Russian
 
-### callback (optional)
+- ### callback (optional)
 
 Callbak is used to handle any operations. It is invoked with the apply button.
 In the single mode it receives only parameter which is reffered to the selected single date date.
