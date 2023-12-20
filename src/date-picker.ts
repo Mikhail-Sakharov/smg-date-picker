@@ -1,18 +1,17 @@
-import {buildCalendarContainer, buildCalendarDays, buildControls, buildDatePicker, buildHeader, buildWeekdayNames} from './calendar';
+import {
+  buildCalendarContainer,
+  buildCalendarDays,
+  buildControls,
+  buildDatePicker,
+  buildHeader,
+  buildWeekdayNames
+} from './calendar';
 import {CalendarMode} from './calendar-mode.enum';
 import {createCalendarData} from './create-calendar-data';
+import {DatePickerOptions} from './date-picker-options.interface';
 import {Lang} from './localization';
 import {Localization} from './localization.enum';
 import './styles/style.css';
-
-interface DatePickerOptions {
-  anchorElement: Element;
-  firstOutputElement: Element;
-  secondOutputElement?: Element;
-  mode?: CalendarMode;
-  localization?: Localization;
-  callback?: (startDate: string, finishDate?: string) => void;
-}
 
 export const createSMGDatePicker = ({
   anchorElement,
@@ -47,6 +46,7 @@ export const createSMGDatePicker = ({
 
   const handleClearButtonClick = () => {
     firstOutputElement.textContent = '';
+
     if (secondOutputElement) {
       secondOutputElement.textContent = '';
     }
@@ -66,6 +66,7 @@ export const createSMGDatePicker = ({
     const singleDate = anchorElement.getAttribute('data-date');
     const startDate = anchorElement.getAttribute('data-start-date');
     const finishDate = anchorElement.getAttribute('data-finish-date');
+
     if (callback && startDate && finishDate) {
       callback(startDate, finishDate);
     }
@@ -90,10 +91,12 @@ export const createSMGDatePicker = ({
   const handleDayElementClick = (dayElement: Element, collection: NodeListOf<Element>) => {
     const selectedDate = dayElement.getAttribute('data-date');
     const isSelectedDateLessThanTodayDate = new Date(selectedDate!) < new Date();
+
     if (!isSelectedDateLessThanTodayDate) {
       collection.forEach((item) => {
         item.classList.remove('smg-date-picker__day--start');
       });
+
       dayElement.classList.add('smg-date-picker__day--start');
       firstOutputElement.textContent = (new Date(selectedDate!)).toLocaleDateString();
       anchorElement.setAttribute('data-date', selectedDate!);
@@ -109,6 +112,7 @@ export const createSMGDatePicker = ({
   const handleDayElementClickRangeMode = (dayElement: Element, collection: NodeListOf<Element>) => {
     const selectedDate = dayElement.getAttribute('data-date'); // ISOString
     const isSelectedDateLessThanTodayDate = new Date(selectedDate!) < new Date(); // block selecting from the past
+
     if (!isSelectedDateLessThanTodayDate) {
       const startDate = anchorElement.getAttribute('data-start-date');
       const finishDate = anchorElement.getAttribute('data-finish-date');
@@ -121,40 +125,49 @@ export const createSMGDatePicker = ({
         firstOutputElement.textContent = (new Date(selectedDate!)).toLocaleDateString();
         anchorElement.setAttribute('data-start-date', selectedDate!);
       }
+
       if (isOnlyStartDateSelected) {
         const isNewStartDateLessThanSelectedStart = new Date(selectedDate!) < new Date(startDate);
+
         if (isNewStartDateLessThanSelectedStart) {
           collection.forEach((item) => {
             item.classList.remove('smg-date-picker__day--start');
           });
+
           dayElement.classList.add('smg-date-picker__day--start');
           firstOutputElement.textContent = (new Date(selectedDate!)).toLocaleDateString();
           anchorElement.setAttribute('data-start-date', selectedDate!);
         } else {
           const startDateIndex = Array.from(collection).findIndex((item) => item.classList.contains('smg-date-picker__day--start'));
           const finishDateIndex = Array.from(collection).findIndex((item) => item === dayElement);
+
           collection.forEach((item, index) => {
             const isDayElementWithinTheRange = index > startDateIndex && index < finishDateIndex;
             if (isDayElementWithinTheRange) {
               item.classList.add('smg-date-picker__day--within-the-range');
             }
           });
+
           dayElement.classList.add('smg-date-picker__day--finish');
+
           if (secondOutputElement) {
             firstOutputElement.textContent = (new Date(startDate!)).toLocaleDateString();
             secondOutputElement.textContent = (new Date(selectedDate!)).toLocaleDateString();
           } else {
             firstOutputElement.textContent = `${(new Date(startDate!)).toLocaleDateString()} - ${(new Date(selectedDate!)).toLocaleDateString()}`;
           }
+
           anchorElement.setAttribute('data-finish-date', selectedDate!);
         }
       }
+
       if (isBothDatesSelected) {
         collection.forEach((item) => {
           item.classList.remove('smg-date-picker__day--start');
           item.classList.remove('smg-date-picker__day--finish');
           item.classList.remove('smg-date-picker__day--within-the-range');
         });
+
         dayElement.classList.add('smg-date-picker__day--start');
         firstOutputElement.textContent = (new Date(selectedDate!)).toLocaleDateString();
         anchorElement.setAttribute('data-start-date', selectedDate!);
@@ -206,8 +219,10 @@ export const createSMGDatePicker = ({
       anchorElementStartDateValue: anchorElement.getAttribute('data-start-date'),
       anchorElementFinishDateValue: anchorElement.getAttribute('data-finish-date')
     };
+
     const updatedCalendarDaysElementView = buildCalendarDays(updatedCalendarData, rangeOptions);
     const updatedCalendarDayCollection = updatedCalendarDaysElementView.querySelectorAll('.smg-date-picker__day');
+
     switch(mode) {
       case CalendarMode.Single:
         addDayElementClickHandlers(updatedCalendarDayCollection);
@@ -216,6 +231,7 @@ export const createSMGDatePicker = ({
         addDayElementClickHandlersRangeMode(updatedCalendarDayCollection);
         break;
     }
+
     const deprecatedCalendarDaysElementView = datePickerContainerElement.querySelector('.smg-date-picker__days');
     deprecatedCalendarDaysElementView?.replaceWith(updatedCalendarDaysElementView);
   };
@@ -234,13 +250,16 @@ export const createSMGDatePicker = ({
     }
 
     const updatedCalendarData = createCalendarData(prevMonth, prevYear);
+
     const rangeOptions = {
       anchorElementDateValue: anchorElement.getAttribute('data-date'),
       anchorElementStartDateValue: anchorElement.getAttribute('data-start-date'),
       anchorElementFinishDateValue: anchorElement.getAttribute('data-finish-date')
     };
+
     const updatedCalendarDaysElementView = buildCalendarDays(updatedCalendarData, rangeOptions);
     const updatedCalendarDayCollection = updatedCalendarDaysElementView.querySelectorAll('.smg-date-picker__day');
+
     switch(mode) {
       case CalendarMode.Single:
         addDayElementClickHandlers(updatedCalendarDayCollection);
@@ -249,6 +268,7 @@ export const createSMGDatePicker = ({
         addDayElementClickHandlersRangeMode(updatedCalendarDayCollection);
         break;
     }
+
     const deprecatedCalendarDaysElementView = datePickerContainerElement.querySelector('.smg-date-picker__days');
     deprecatedCalendarDaysElementView?.replaceWith(updatedCalendarDaysElementView);
   };

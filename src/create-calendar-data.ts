@@ -1,4 +1,6 @@
-export const createCalendarData = (month?: number, year?: number) => {
+import {CalendarData} from './calendar-data.interface';
+
+export const createCalendarData = (month?: number, year?: number): CalendarData[] => {
   const selectedMonthNumber = month ?? (new Date()).getMonth();
   const selectedYearNumber = year ?? (new Date()).getFullYear();
 

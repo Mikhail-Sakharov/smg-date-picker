@@ -1,23 +1,8 @@
+import {CalendarData} from './calendar-data.interface';
+import {HeaderData} from './header-data.interface';
 import {Lang} from './localization';
 import {Localization} from './localization.enum';
-
-export interface CalendarData {
-  value: number;
-  date: string;
-  isOutsideSelectedPeriod: boolean;
-  isCurrentDay?: boolean;
-}
-
-export interface HeaderData {
-  currentMonth: number;
-  currentYear: number;
-}
-
-export interface RangeOptions {
-  anchorElementDateValue: string | null;
-  anchorElementStartDateValue: string | null;
-  anchorElementFinishDateValue: string | null;
-}
+import {RangeOptions} from './range-options.interface';
 
 export const buildHeader = (localization: Localization, headerData: HeaderData) => {
   const {currentMonth, currentYear} = headerData;
