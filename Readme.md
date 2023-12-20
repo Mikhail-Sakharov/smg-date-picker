@@ -50,12 +50,12 @@ There are two available options:
 
 - ### callback (optional)
 
-Callbak is used to handle any operations. It is invoked with the apply button.
-In the single mode it receives only parameter which is reffered to the selected single date date.
-In the range mode it receives two parameters which are reffered to the start and finish dates in the selected range respectively.
-For example it could be used in the request to the backend API.
+Callback is used to handle any operations. It is invoked with the apply button.
+In the single mode it receives only parameter which is referred to the selected single date.
+In the range mode it receives two parameters which are referred to the start and finish dates in the selected range respectively.
+For example it could be used in the request to a backend API.
 
-## Single mode expample
+## Single mode example
 
 ```js
 import {createSMGDatePicker, CalendarMode, Localization} from 'smg-date-picker';
