@@ -1,4 +1,4 @@
-import {Lang} from '../localization';
+import {Lang} from '../constant/localization';
 import {Localization} from '../enums/localization.enum';
 
 export const buildWeekdayNames = (localization: Localization) => {

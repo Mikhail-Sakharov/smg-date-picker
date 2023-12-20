@@ -1,4 +1,4 @@
-import {Localization} from './enums/localization.enum';
+import {Localization} from '../enums/localization.enum';
 
 export enum EnglishMonths {
   January = 'January',

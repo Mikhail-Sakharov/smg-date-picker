@@ -1,5 +1,5 @@
 import {createCalendarData} from '../engine/create-calendar-data';
-import {Lang} from '../localization';
+import {Lang} from '../constant/localization';
 import {Localization} from '../enums/localization.enum';
 import {buildCalendarDays} from '../view-builders/calendar-days.builder';
 
