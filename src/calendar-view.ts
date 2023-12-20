@@ -14,9 +14,11 @@ import {buildControls} from './view-builders/controls.builder';
 import {buildDatePicker} from './view-builders/date-picker.builder';
 import {buildHeader} from './view-builders/header.builder';
 import {buildWeekdayNames} from './view-builders/weekday-names.builder';
+import {handleClearButtonClick} from './handlers/clear-button-click-handler';
 
 export class CalendarView {
   private headerElement: HTMLElement | null = null;
+  private calendarControls: HTMLElement | null = null;
   private datePickerContainerElement: HTMLElement | null = null;
 
   constructor(
@@ -24,7 +26,8 @@ export class CalendarView {
     private calendarData: CalendarData[],
     private headerData: HeaderData,
     private anchorElement: HTMLElement | null = null,
-    private firstOutputElement: HTMLElement | null = null
+    private firstOutputElement: HTMLElement | null = null,
+    private secondOutputElement: HTMLElement | null = null
   ) {}
 
   private createHeader = () => {
@@ -62,19 +65,20 @@ export class CalendarView {
     const weekdayNamesElement = this.createWeekdays();
     const calendarDaysElement = this.createDays(rangeOptions);
     const calendarDaysCollection = calendarDaysElement.querySelectorAll('.smg-date-picker__day');
-    const calendarControls = this.createControls();
+    this.calendarControls = this.createControls();
     this.datePickerContainerElement = this.createCalendarContainer();
     const datePickerElement = this.createDatePicker();
 
     this.datePickerContainerElement.append(this.headerElement);
     this.datePickerContainerElement.append(weekdayNamesElement);
     this.datePickerContainerElement.append(calendarDaysElement);
-    this.datePickerContainerElement.append(calendarControls);
+    this.datePickerContainerElement.append(this.calendarControls);
     datePickerElement.append(this.datePickerContainerElement);
 
     this.setNextMonthButtonClickHandler();
     this.setPrevMonthButtonClickHandler();
     this.setDayElementClickHandler(calendarDaysCollection);
+    this.setClearButtonClickHandler();
 
     return datePickerElement;
   };
@@ -117,6 +121,18 @@ export class CalendarView {
           collection
         ));
       });
+    }
+  };
+
+  private setClearButtonClickHandler = () => {
+    if (this.anchorElement && this.firstOutputElement && this.secondOutputElement && this.calendarControls) {
+      const clearButton = this.calendarControls.querySelector('.smg-date-picker__clear-button');
+
+      clearButton?.addEventListener('click', () => handleClearButtonClick(
+        this.anchorElement!,
+        this.firstOutputElement!,
+        this.secondOutputElement!
+      ));
     }
   };
 }
