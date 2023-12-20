@@ -29,12 +29,12 @@ export const buildCalendarDays = (calendarData: CalendarData[], rangeOptions: Ra
     if (day.date === anchorElementDateValue) {
       dayElement.classList.add('smg-date-picker__day--start');
     }
-    // if (day.date === anchorElementStartDateValue) {
-    //   dayElement.classList.add('smg-date-picker__day--start');
-    // }
-    // if (day.date === anchorElementFinishDateValue) {
-    //   dayElement.classList.add('smg-date-picker__day--finish');
-    // }
+    if (day.date === anchorElementStartDateValue) {
+      dayElement.classList.add('smg-date-picker__day--start');
+    }
+    if (day.date === anchorElementFinishDateValue) {
+      dayElement.classList.add('smg-date-picker__day--finish');
+    }
     if (isDayWithinTheRange) {
       dayElement.classList.add('smg-date-picker__day--within-the-range');
     }

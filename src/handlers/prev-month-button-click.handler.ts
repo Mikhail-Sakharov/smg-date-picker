@@ -7,7 +7,6 @@ export const handlePrevMonthButtonClick = (
   anchorElement: HTMLElement,
   headerElement: HTMLElement,
   datePickerContainerElement: HTMLElement,
-  // mode: CalendarMode,
   localization: Localization,
   restoreDayElementClickHandler: (collection: NodeListOf<Element>) => void
 ) => {
@@ -34,15 +33,6 @@ export const handlePrevMonthButtonClick = (
   const updatedCalendarDaysElementView = buildCalendarDays(updatedCalendarData, rangeOptions);
   const updatedCalendarDayCollection = updatedCalendarDaysElementView.querySelectorAll('.smg-date-picker__day');
   restoreDayElementClickHandler(updatedCalendarDayCollection);
-
-  // switch(mode) {
-  //   case CalendarMode.Single:
-  //     addDayElementClickHandlers(updatedCalendarDayCollection);
-  //     break;
-  //   case CalendarMode.Range:
-  //     addDayElementClickHandlersRangeMode(updatedCalendarDayCollection);
-  //     break;
-  // }
 
   const deprecatedCalendarDaysElementView = datePickerContainerElement.querySelector('.smg-date-picker__days');
   deprecatedCalendarDaysElementView?.replaceWith(updatedCalendarDaysElementView);

@@ -100,13 +100,16 @@ export class CalendarView {
   private setNextMonthButtonClickHandler = () => {
     if (this.anchorElement && this.headerElement && this.datePickerContainerElement) {
       const nextMonthButton = this.headerElement.querySelector('.smg-date-picker__right-arrow');
+      const restoreClickHandler = this.mode === CalendarMode.Single
+        ? this.setDayElementClickHandler
+        : this.setRangeModeDayElementClickHandler;
 
       nextMonthButton?.addEventListener('click', () => handleNextMonthButtonClick(
         this.anchorElement!,
         this.headerElement!,
         this.datePickerContainerElement!,
         this.localization,
-        this.setDayElementClickHandler
+        restoreClickHandler
       ));
     }
   };
@@ -114,13 +117,16 @@ export class CalendarView {
   private setPrevMonthButtonClickHandler = () => {
     if (this.headerElement && this.datePickerContainerElement) {
       const prevMonthButton = this.headerElement.querySelector('.smg-date-picker__left-arrow');
+      const restoreClickHandler = this.mode === CalendarMode.Single
+        ? this.setDayElementClickHandler
+        : this.setRangeModeDayElementClickHandler;
 
       prevMonthButton?.addEventListener('click', () => handlePrevMonthButtonClick(
         this.anchorElement!,
         this.headerElement!,
         this.datePickerContainerElement!,
         this.localization,
-        this.setDayElementClickHandler
+        restoreClickHandler
       ));
     }
   };
