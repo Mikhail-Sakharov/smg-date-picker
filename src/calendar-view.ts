@@ -14,8 +14,10 @@ import {buildControls} from './view-builders/controls.builder';
 import {buildDatePicker} from './view-builders/date-picker.builder';
 import {buildHeader} from './view-builders/header.builder';
 import {buildWeekdayNames} from './view-builders/weekday-names.builder';
-import {handleClearButtonClick} from './handlers/clear-button-click-handler';
-import {handleApplyButtonClick} from './handlers/apply-button-click-handler';
+import {handleClearButtonClick} from './handlers/clear-button-click.handler';
+import {handleApplyButtonClick} from './handlers/apply-button-click.handler';
+import {handleRangeModeDayElementClick} from './handlers/day-element-click-range-mode.handler';
+import {CalendarMode} from './enums/calendar-mode.enum';
 
 export class CalendarView {
   private headerElement: HTMLElement | null = null;
@@ -30,7 +32,8 @@ export class CalendarView {
     private anchorElement: HTMLElement | null = null,
     private firstOutputElement: HTMLElement | null = null,
     private secondOutputElement: HTMLElement | null = null,
-    private callback: (startDate: string, finishDate?: string) => void
+    private callback: (startDate: string, finishDate?: string) => void,
+    private mode: CalendarMode
   ) {}
 
   private createHeader = () => {
@@ -80,9 +83,16 @@ export class CalendarView {
 
     this.setNextMonthButtonClickHandler();
     this.setPrevMonthButtonClickHandler();
-    this.setDayElementClickHandler(calendarDaysCollection);
     this.setClearButtonClickHandler();
     this.setApplyButtonClickHandler();
+    switch(this.mode) {
+      case CalendarMode.Single:
+        this.setDayElementClickHandler(calendarDaysCollection);
+        break;
+      case CalendarMode.Range:
+        this.setRangeModeDayElementClickHandler(calendarDaysCollection)
+        break;
+    }
 
     return this.datePickerElement;
   };
@@ -121,6 +131,20 @@ export class CalendarView {
         dayElement.addEventListener('click', () => handleDayElementClick(
           this.anchorElement!,
           this.firstOutputElement!,
+          dayElement,
+          collection
+        ));
+      });
+    }
+  };
+
+  private setRangeModeDayElementClickHandler = (collection: NodeListOf<Element>) => {
+    if (this.anchorElement && this.firstOutputElement) {
+      collection.forEach((dayElement) => {
+        dayElement.addEventListener('click', () => handleRangeModeDayElementClick(
+          this.anchorElement!,
+          this.firstOutputElement!,
+          this.secondOutputElement!,
           dayElement,
           collection
         ));

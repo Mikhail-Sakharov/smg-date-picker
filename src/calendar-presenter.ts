@@ -44,7 +44,8 @@ export class CalendarPresenter {
         this.anchorElement,
         this.firstOutputElement,
         this.secondOutputElement,
-        this.callback
+        this.callback,
+        this.mode
       );
       const datePickerElement = calendarView.build(rangeOptions);
 
