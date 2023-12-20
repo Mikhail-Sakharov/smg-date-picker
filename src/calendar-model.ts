@@ -1,5 +1,5 @@
-import {CalendarData} from './calendar-data.interface';
-import {HeaderData} from './header-data.interface';
+import {CalendarData} from './interfaces/calendar-data.interface';
+import {HeaderData} from './interfaces/header-data.interface';
 
 import {createCalendarData} from './create-calendar-data';
 

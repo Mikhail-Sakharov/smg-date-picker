@@ -1,5 +1,5 @@
-import {CalendarMode} from './calendar-mode.enum';
-import {Localization} from './localization.enum';
+import {CalendarMode} from '../calendar-mode.enum';
+import {Localization} from '../localization.enum';
 
 export interface DatePickerOptions {
   anchorElement: Element;

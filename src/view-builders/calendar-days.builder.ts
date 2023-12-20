@@ -1,5 +1,5 @@
-import {CalendarData} from '../calendar-data.interface';
-import {RangeOptions} from '../range-options.interface';
+import {CalendarData} from '../interfaces/calendar-data.interface';
+import {RangeOptions} from '../interfaces/range-options.interface';
 
 export const buildCalendarDays = (calendarData: CalendarData[], rangeOptions: RangeOptions) => {
   const {

@@ -1,4 +1,4 @@
-import {HeaderData} from '../header-data.interface';
+import {HeaderData} from '../interfaces/header-data.interface';
 import {Lang} from '../localization';
 import {Localization} from '../localization.enum';
 

@@ -1,6 +1,6 @@
-import {CalendarData} from './calendar-data.interface';
-import {HeaderData} from './header-data.interface';
-import {RangeOptions} from './range-options.interface';
+import {CalendarData} from './interfaces/calendar-data.interface';
+import {HeaderData} from './interfaces/header-data.interface';
+import {RangeOptions} from './interfaces/range-options.interface';
 
 import {Localization} from './localization.enum';
 

@@ -1,8 +1,8 @@
-import {CalendarData} from './calendar-data.interface';
-import {HeaderData} from './header-data.interface';
+import {CalendarData} from './interfaces/calendar-data.interface';
+import {HeaderData} from './interfaces/header-data.interface';
 import {Lang} from './localization';
 import {Localization} from './localization.enum';
-import {RangeOptions} from './range-options.interface';
+import {RangeOptions} from './interfaces/range-options.interface';
 
 export const buildHeader = (localization: Localization, headerData: HeaderData) => {
   const {currentMonth, currentYear} = headerData;
