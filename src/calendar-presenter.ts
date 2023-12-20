@@ -14,7 +14,7 @@ export class CalendarPresenter {
     private secondOutputElement: HTMLElement | null = null,
     private mode = CalendarMode.Single,
     private localization = Localization.Eng,
-    private callback = null
+    private callback: (startDate: string, finishDate?: string) => void | null
   ) {}
 
   public init = () => {};
@@ -43,7 +43,8 @@ export class CalendarPresenter {
         headerData,
         this.anchorElement,
         this.firstOutputElement,
-        this.secondOutputElement
+        this.secondOutputElement,
+        this.callback
       );
       const datePickerElement = calendarView.build(rangeOptions);
 
