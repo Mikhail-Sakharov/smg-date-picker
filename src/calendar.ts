@@ -1,7 +1,7 @@
 import {CalendarData} from './interfaces/calendar-data.interface';
 import {HeaderData} from './interfaces/header-data.interface';
 import {Lang} from './localization';
-import {Localization} from './localization.enum';
+import {Localization} from './enums/localization.enum';
 import {RangeOptions} from './interfaces/range-options.interface';
 
 export const buildHeader = (localization: Localization, headerData: HeaderData) => {

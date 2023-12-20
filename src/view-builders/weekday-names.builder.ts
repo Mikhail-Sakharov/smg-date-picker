@@ -1,5 +1,5 @@
 import {Lang} from '../localization';
-import {Localization} from '../localization.enum';
+import {Localization} from '../enums/localization.enum';
 
 export const buildWeekdayNames = (localization: Localization) => {
   const calendarWeekdayNamesElement = document.createElement('div');

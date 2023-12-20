@@ -6,11 +6,11 @@ import {
   buildHeader,
   buildWeekdayNames
 } from './calendar';
-import {CalendarMode} from './calendar-mode.enum';
+import {CalendarMode} from './enums/calendar-mode.enum';
 import {createCalendarData} from './create-calendar-data';
 import {DatePickerOptions} from './interfaces/date-picker-options.interface';
 import {Lang} from './localization';
-import {Localization} from './localization.enum';
+import {Localization} from './enums/localization.enum';
 import './styles/style.css';
 
 export const createSMGDatePicker = ({
