@@ -7,7 +7,7 @@ import {
   buildWeekdayNames
 } from './calendar';
 import {CalendarMode} from './enums/calendar-mode.enum';
-import {createCalendarData} from './create-calendar-data';
+import {createCalendarData} from './engine/create-calendar-data';
 import {DatePickerOptions} from './interfaces/date-picker-options.interface';
 import {Lang} from './localization';
 import {Localization} from './enums/localization.enum';

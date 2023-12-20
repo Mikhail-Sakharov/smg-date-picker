@@ -1,7 +1,7 @@
 import {CalendarData} from './interfaces/calendar-data.interface';
 import {HeaderData} from './interfaces/header-data.interface';
 
-import {createCalendarData} from './create-calendar-data';
+import {createCalendarData} from './engine/create-calendar-data';
 
 export class CalendarModel {
   private calendarData: CalendarData[] = [];
