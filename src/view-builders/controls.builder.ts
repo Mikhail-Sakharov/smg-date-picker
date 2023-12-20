@@ -1,3 +1,6 @@
+import {Lang} from '../constant/localization';
+import {Localization} from '../enums/localization.enum';
+
 const createButton = (title: string, className?: string) => {
   const buttonContainerElement = document.createElement('div');
   buttonContainerElement.classList.add('smg-date-picker__button-text');
@@ -11,12 +14,15 @@ const createButton = (title: string, className?: string) => {
   return buttonContainerElement;
 };
 
-export const buildControls = () => {
+export const buildControls = (localization: Localization) => {
   const calendarControlsElement = document.createElement('div');
   calendarControlsElement.classList.add('smg-date-picker__controls');
 
-  const clearButton = createButton('очистить', 'smg-date-picker__clear-button');
-  const applyButton = createButton('применить', 'smg-date-picker__apply-button');
+  const clearButtonTitle = Lang[localization].controls.Clear;
+  const applyButtonTitle = Lang[localization].controls.Apply;
+
+  const clearButton = createButton(clearButtonTitle, 'smg-date-picker__clear-button');
+  const applyButton = createButton(applyButtonTitle, 'smg-date-picker__apply-button');
 
   calendarControlsElement.append(clearButton);
   calendarControlsElement.append(applyButton);

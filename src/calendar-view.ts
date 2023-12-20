@@ -52,7 +52,7 @@ export class CalendarView {
   };
 
   private createControls = () => {
-    const calendarControlsElement = buildControls();
+    const calendarControlsElement = buildControls(this.localization);
     return calendarControlsElement;
   };
 

@@ -25,6 +25,11 @@ export enum EnglishWeekdays {
   Sun = 'Sun'
 }
 
+export enum EnglishControls {
+  Clear = 'Clear',
+  Apply = 'Apply',
+}
+
 export enum RussianMonths {
   January = 'Январь',
   February = 'Февраль',
@@ -50,13 +55,20 @@ export enum RussianWeekdays {
   Sun = 'Вс'
 }
 
+export enum RussianControls {
+  Clear = 'Очистить',
+  Apply = 'Применить',
+}
+
 export const Lang = {
   [Localization.Eng]: {
     months: EnglishMonths,
-    weekdays: EnglishWeekdays
+    weekdays: EnglishWeekdays,
+    controls: EnglishControls
   },
   [Localization.Ru]: {
     months: RussianMonths,
-    weekdays: RussianWeekdays
+    weekdays: RussianWeekdays,
+    controls: RussianControls
   }
 };
