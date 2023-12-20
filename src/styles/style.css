@@ -43,21 +43,36 @@
 }
 
 .smg-date-picker__left-arrow {
+  border-style: none;
+
   cursor: pointer;
+
   width: 24px;
   height: 24px;
+
+  background-color: transparent;
   background-image: url('./arrow-left.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .smg-date-picker__right-arrow {
+  border-style: none;
+
   cursor: pointer;
+
   width: 24px;
   height: 24px;
+
+  background-color: transparent;
   background-image: url('./arrow-right.svg');
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.smg-date-picker__left-arrow:focus-visible,
+.smg-date-picker__right-arrow:focus-visible {
+  outline: 3px solid #6bd0bf;
 }
 
 .smg-date-picker__weekday-names {
@@ -92,6 +107,10 @@
 
 .smg-date-picker__day {
   border-radius: 50%;
+  border-style: none;
+
+  background-color: transparent;
+
   color: rgba(31, 32, 65, 0.50);
   text-align: center;
   font-family: 'Montserrat';
@@ -99,6 +118,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.smg-date-picker__day:focus-visible {
+  outline: 3px solid #6bd0bf;
 }
 
 .smg-date-picker__day--outside-period {
@@ -192,4 +215,9 @@
 .smg-date-picker__button-text button:hover {
   color: rgba(31, 32, 65, 0.5);
   cursor: pointer;
+}
+
+.smg-date-picker__button-text button:focus-visible {
+  outline: 3px solid #6bd0bf;
+  outline-offset: 5px;
 }

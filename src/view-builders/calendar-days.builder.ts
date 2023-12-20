@@ -16,7 +16,7 @@ export const buildCalendarDays = (calendarData: CalendarData[], rangeOptions: Ra
       && new Date(day.date) > new Date(anchorElementStartDateValue)
       && new Date(day.date) < new Date(anchorElementFinishDateValue);
     const isAfterToday = new Date(day.date) > new Date();
-    const dayElement = document.createElement('div');
+    const dayElement = document.createElement('button');
     const daySpanElement = document.createElement('span');
     dayElement.classList.add('smg-date-picker__day');
     dayElement.setAttribute('data-date', day.date);
@@ -40,6 +40,8 @@ export const buildCalendarDays = (calendarData: CalendarData[], rangeOptions: Ra
     }
     if (isAfterToday) {
       dayElement.classList.add('smg-date-picker__day--after-today');
+    } else {
+      dayElement.disabled = true;
     }
     daySpanElement.classList.add('smg-date-picker__day-number');
     daySpanElement.textContent = day.value.toString();
