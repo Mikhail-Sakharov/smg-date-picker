@@ -35,7 +35,7 @@ export class CalendarView {
     private anchorElement: HTMLElement | null = null,
     private firstOutputElement: HTMLElement | null = null,
     private secondOutputElement: HTMLElement | null = null,
-    private callback: (startDate: string, finishDate?: string) => void,
+    private callback: ((startDate: string, finishDate?: string) => void) | null,
     private mode: CalendarMode
   ) {
     if (this.firstOutputElement) {
@@ -172,13 +172,13 @@ export class CalendarView {
     firstOutputElementInitialValue: string | null | undefined,
     secondOutputElementInitialValue: string | null | undefined
   ) => {
-    if (this.anchorElement && this.firstOutputElement && this.secondOutputElement && this.calendarControls) {
+    if (this.anchorElement && this.firstOutputElement && this.calendarControls) {
       const clearButton = this.calendarControls.querySelector('.smg-date-picker__clear-button');
 
       clearButton?.addEventListener('click', () => handleClearButtonClick(
         this.anchorElement!,
         this.firstOutputElement!,
-        this.secondOutputElement!,
+        this.secondOutputElement,
         firstOutputElementInitialValue,
         secondOutputElementInitialValue
       ));
@@ -186,7 +186,7 @@ export class CalendarView {
   };
 
   private setApplyButtonClickHandler = () => {
-    if (this.anchorElement && this.firstOutputElement && this.secondOutputElement && this.calendarControls) {
+    if (this.anchorElement && this.firstOutputElement && this.calendarControls) {
       const applyButton = this.calendarControls.querySelector('.smg-date-picker__apply-button');
 
       applyButton?.addEventListener('click', () => handleApplyButtonClick(

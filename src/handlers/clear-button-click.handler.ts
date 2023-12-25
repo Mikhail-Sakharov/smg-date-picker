@@ -1,7 +1,7 @@
 export const handleClearButtonClick = (
   anchorElement: HTMLElement,
   firstOutputElement: HTMLElement,
-  secondOutputElement: HTMLElement,
+  secondOutputElement: HTMLElement | null,
   firstOutputElementInitialValue: string | null | undefined,
   secondOutputElementInitialValue: string | null | undefined
 ) => {

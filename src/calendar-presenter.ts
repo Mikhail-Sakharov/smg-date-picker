@@ -14,7 +14,7 @@ export class CalendarPresenter {
     private secondOutputElement: HTMLElement | null = null,
     private mode = CalendarMode.Single,
     private localization = Localization.Eng,
-    private callback: (startDate: string, finishDate?: string) => void | null
+    private callback: ((startDate: string, finishDate?: string) => void) | null
   ) {}
 
   public init = () => {};

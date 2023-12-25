@@ -1,7 +1,7 @@
 export const handleApplyButtonClick = (
   anchorElement: HTMLElement,
   datePickerElement: HTMLElement,
-  callback: (startDate: string, finishDate?: string) => void
+  callback: ((startDate: string, finishDate?: string) => void) | null
 ) => {
   const singleDate = anchorElement.getAttribute('data-date');
   const startDate = anchorElement.getAttribute('data-start-date');
