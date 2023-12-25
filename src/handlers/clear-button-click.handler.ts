@@ -1,14 +1,16 @@
 export const handleClearButtonClick = (
   anchorElement: HTMLElement,
   firstOutputElement: HTMLElement,
-  secondOutputElement: HTMLElement
+  secondOutputElement: HTMLElement,
+  firstOutputElementInitialValue: string | null | undefined,
+  secondOutputElementInitialValue: string | null | undefined
 ) => {
-  if (firstOutputElement) {
-    firstOutputElement.textContent = 'ДД.ММ.ГГГГ';
+  if (firstOutputElement && firstOutputElementInitialValue) {
+    firstOutputElement.textContent = firstOutputElementInitialValue;
   }
 
-  if (secondOutputElement) {
-    secondOutputElement.textContent = 'ДД.ММ.ГГГГ';
+  if (secondOutputElement && secondOutputElementInitialValue) {
+    secondOutputElement.textContent = secondOutputElementInitialValue;
   }
 
   if (anchorElement) {

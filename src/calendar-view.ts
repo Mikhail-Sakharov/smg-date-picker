@@ -25,6 +25,9 @@ export class CalendarView {
   private datePickerContainerElement: HTMLElement | null = null;
   private datePickerElement: HTMLElement | null = null;
 
+  private firstOutputElementInitialValue: string | null | undefined = null;
+  private secondOutputElementInitialValue: string | null | undefined = null;
+
   constructor(
     private localization: Localization,
     private calendarData: CalendarData[],
@@ -34,7 +37,14 @@ export class CalendarView {
     private secondOutputElement: HTMLElement | null = null,
     private callback: (startDate: string, finishDate?: string) => void,
     private mode: CalendarMode
-  ) {}
+  ) {
+    if (this.firstOutputElement) {
+      this.firstOutputElementInitialValue = firstOutputElement?.textContent;
+    }
+    if (this.secondOutputElement) {
+      this.secondOutputElementInitialValue = secondOutputElement?.textContent;
+    }
+  }
 
   private createHeader = () => {
     const headerElement = buildHeader(this.localization, this.headerData);
@@ -83,7 +93,7 @@ export class CalendarView {
 
     this.setNextMonthButtonClickHandler();
     this.setPrevMonthButtonClickHandler();
-    this.setClearButtonClickHandler();
+    this.setClearButtonClickHandler(this.firstOutputElementInitialValue, this.secondOutputElementInitialValue);
     this.setApplyButtonClickHandler();
     switch(this.mode) {
       case CalendarMode.Single:
@@ -158,14 +168,19 @@ export class CalendarView {
     }
   };
 
-  private setClearButtonClickHandler = () => {
+  private setClearButtonClickHandler = (
+    firstOutputElementInitialValue: string | null | undefined,
+    secondOutputElementInitialValue: string | null | undefined
+  ) => {
     if (this.anchorElement && this.firstOutputElement && this.secondOutputElement && this.calendarControls) {
       const clearButton = this.calendarControls.querySelector('.smg-date-picker__clear-button');
 
       clearButton?.addEventListener('click', () => handleClearButtonClick(
         this.anchorElement!,
         this.firstOutputElement!,
-        this.secondOutputElement!
+        this.secondOutputElement!,
+        firstOutputElementInitialValue,
+        secondOutputElementInitialValue
       ));
     }
   };
