@@ -1,10 +1,10 @@
 import {CalendarMode} from './enums/calendar-mode.enum';
-import {CalendarPresenter} from './calendar-presenter';
 import {createSMGDatePicker} from './date-picker';
 import {Localization} from './enums/localization/localization.enum';
+import {SMGDatePicker} from './smg-date-picker';
 
 export {
-  CalendarPresenter,
+  SMGDatePicker,
   createSMGDatePicker,
   CalendarMode,
   Localization
