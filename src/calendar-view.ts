@@ -2,7 +2,7 @@ import {CalendarData} from './interfaces/calendar-data.interface';
 import {HeaderData} from './interfaces/header-data.interface';
 import {RangeOptions} from './interfaces/range-options.interface';
 
-import {Localization} from './enums/localization.enum';
+import {Localization} from './enums/localization/localization.enum';
 
 import {handleDayElementClick} from './handlers/day-element-click.handler';
 import {handleNextMonthButtonClick} from './handlers/next-month-button-click.handler';

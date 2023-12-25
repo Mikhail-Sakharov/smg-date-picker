@@ -1,6 +1,6 @@
 import {HeaderData} from '../interfaces/header-data.interface';
-import {Lang} from '../constant/localization';
-import {Localization} from '../enums/localization.enum';
+import {Lang} from '../enums/localization/localization';
+import {Localization} from '../enums/localization/localization.enum';
 
 export const buildHeader = (localization: Localization, headerData: HeaderData) => {
   const {currentMonth, currentYear} = headerData;

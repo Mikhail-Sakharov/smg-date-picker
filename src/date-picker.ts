@@ -7,10 +7,10 @@ import {
   buildWeekdayNames
 } from './calendar';
 import {CalendarMode} from './enums/calendar-mode.enum';
-import {createCalendarData} from './engine/create-calendar-data';
+import {createCalendarData} from './data-generator/create-calendar-data';
 import {DatePickerOptions} from './interfaces/date-picker-options.interface';
-import {Lang} from './constant/localization';
-import {Localization} from './enums/localization.enum';
+import {Lang} from './enums/localization/localization';
+import {Localization} from './enums/localization/localization.enum';
 import './styles/style.css';
 
 export const createSMGDatePicker = ({

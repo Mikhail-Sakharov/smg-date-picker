@@ -1,5 +1,5 @@
-import {Lang} from '../constant/localization';
-import {Localization} from '../enums/localization.enum';
+import {Lang} from '../enums/localization/localization';
+import {Localization} from '../enums/localization/localization.enum';
 
 const createButton = (title: string, className?: string) => {
   const buttonContainerElement = document.createElement('div');

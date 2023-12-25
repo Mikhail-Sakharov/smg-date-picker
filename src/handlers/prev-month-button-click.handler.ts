@@ -1,6 +1,6 @@
-import {createCalendarData} from '../engine/create-calendar-data';
-import {Lang} from '../constant/localization';
-import {Localization} from '../enums/localization.enum';
+import {createCalendarData} from '../data-generator/create-calendar-data';
+import {Lang} from '../enums/localization/localization';
+import {Localization} from '../enums/localization/localization.enum';
 import {buildCalendarDays} from '../view-builders/calendar-days.builder';
 
 export const handlePrevMonthButtonClick = (
