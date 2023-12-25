@@ -8,13 +8,28 @@ npm i smg-date-picker
 
 ```js
 createSMGDatePicker({
-  anchorElement: Element;
-  firstOutputElement: Element;
-  secondOutputElement?: Element;
-  mode?: CalendarMode;
-  localization?: Localization;
-  callback?: (startDate: string, finishDate?: string) => void;
+  anchorElement: Element,
+  firstOutputElement: Element,
+  secondOutputElement?: Element,
+  mode?: CalendarMode,
+  localization?: Localization,
+  callback?: ((startDate: string, finishDate?: string) => void) | null
 });
+```
+
+or
+
+```js
+const datePicker = new SMGDatePicker({
+  anchorElement: Element,
+  firstOutputElement: Element,
+  secondOutputElement?: Element,
+  mode?: CalendarMode,
+  localization?: Localization,
+  callback?: ((startDate: string, finishDate?: string) => void) | null
+});
+
+datePicker.create();
 ```
 
 ## Available options
@@ -51,9 +66,9 @@ There are two available options:
 - ### callback (optional)
 
 Callback is used to handle any operations. It is invoked with the apply button.
-In the single mode it receives only parameter which is referred to the selected single date.
+In the single mode it receives the only parameter which is referred to the selected single date.
 In the range mode it receives two parameters which are referred to the start and finish dates in the selected range respectively.
-For example it could be used in the request to a backend API.
+For example it could be used in the request to the backend API.
 
 ## Single mode example
 
@@ -68,6 +83,20 @@ createSMGDatePicker({
   anchorElement,
   firstOutputElement
 });
+```
+
+or
+
+```js
+const datePicker = new SMGDatePicker({
+  anchorElement: anchorElement,
+  firstOutputElement: firstOutputElement,
+  mode: CalendarMode.Range,
+  localization: Localization.Ru,
+  callback: console.log
+});
+
+datePicker.create();
 ```
 
 ## Range mode example
@@ -92,4 +121,19 @@ createSMGDatePicker({
   localization: Localization.Ru;
   callback: showDates
 });
+```
+
+or
+
+```js
+const datePicker = new SMGDatePicker({
+  anchorElement,
+  firstOutputElement,
+  firstOutputElement,
+  mode: CalendarMode.Range,
+  localization: Localization.Ru,
+  callback: showDates
+});
+
+datePicker.create();
 ```
